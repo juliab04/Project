@@ -147,7 +147,7 @@ if ($method === 'POST') {
         } else {
         echo 'Поле Password не заполнено';
     }
-    if ($_POST['name'] !== $_POST['confirm-password']) {
+    if ($_POST['password'] !== $_POST['confirm-password']) {
         echo 'Пароли не совпадают';
     }
 

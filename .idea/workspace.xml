@@ -5,6 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cc4d7c3-a75f-4c82-8300-11ab06e661de" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/hanlder/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/hanlder/main.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/hanlder/registrate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/html/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/html/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/html/main.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/html/registrate.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd/storage_v2/_src_/database/dbname.CRg9sA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd/storage_v2/_src_/database/dbname.CRg9sA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.php" afterDir="false" />
     </list>
@@ -68,7 +79,19 @@
       <workItem from="1693634157683" duration="14165000" />
       <workItem from="1693713196196" duration="9667000" />
       <workItem from="1693739331003" duration="453000" />
-      <workItem from="1693739795096" duration="1641000" />
+      <workItem from="1693739795096" duration="6993000" />
+      <workItem from="1693825424561" duration="1444000" />
+      <workItem from="1693828567747" duration="9702000" />
+      <workItem from="1693899015513" duration="13506000" />
+      <workItem from="1693999964613" duration="4084000" />
+      <workItem from="1694084890040" duration="8219000" />
+      <workItem from="1694253458726" duration="152000" />
+      <workItem from="1694253622970" duration="820000" />
+      <workItem from="1694254517699" duration="441000" />
+      <workItem from="1694254970020" duration="7121000" />
+      <workItem from="1694357450585" duration="1723000" />
+      <workItem from="1694423647450" duration="1842000" />
+      <workItem from="1694515698374" duration="8049000" />
     </task>
     <servers />
   </component>

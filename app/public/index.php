@@ -1,22 +1,27 @@
 <?php
+spl_autoload_register(function (string $className) {
+    $className = str_replace("\\", "/", $className);
+    if (file_exists("./../$className.php")) {
+        require_once "./../$className.php";
+        return true;
+    }
+    return false;
+});
 
-$method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 
-if ($uri === '/registrate') {
-    require_once './hanlder/registrate.php';
-} elseif ($uri === '/login') {
-require_once './hanlder/login.php';
-} elseif ($uri === '/main') {
-    require_once './hanlder/main.php';
-} elseif ($uri === '/logout') {
-    session_start();
-    session_destroy();
+$routes = require_once './../Config/routes.php';
+
+if (isset($routes[$uri])) {
+    $handler = $routes[$uri];
+
+    $class = $handler['class'];
+    $method = $handler['method'];
+    $obj = new $class();
+    $obj-> $method();
 } else {
-    require_once './html/404.html';
+    require_once './Views/404.html';
 }
-
-
 
 
 ?>

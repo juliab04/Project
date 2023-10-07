@@ -5,19 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cc4d7c3-a75f-4c82-8300-11ab06e661de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/hanlder/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/hanlder/main.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/hanlder/registrate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/html/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/html/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/html/main.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/html/registrate.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Config/routes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Controllers/CartController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Controllers/MainController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Controllers/ProductController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Controllers/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/Basket.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/ConnectionFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Service/AuthenticateService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/Views/cart.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/Views/product.phtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/handler/add-to-cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/handler/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/handler/main.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/public/handler/registrate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/conf/php/xdebug.ini" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/conf/php/xdebug.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Online-shop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Online-shop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd/storage_v2/_src_/database/dbname.CRg9sA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd/storage_v2/_src_/database/dbname.CRg9sA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/hanlder/login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/hanlder/main.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/hanlder/registrate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/html/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Views/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Views/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/html/main.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Views/main.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/html/registrate.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Views/registrate.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,13 +47,34 @@
     <pharConfigPath>$PROJECT_DIR$/app/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" xdebug_debug_port="9009" listening_started="true">
+    <xdebug_debug_ports port="9009" />
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="e76eb391-77d9-432c-abd3-7ba762c22eb9" name="Unnamed" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/app" remote-root="/var/www/html/app" />
+          <mapping local-root="$PROJECT_DIR$/app/public" remote-root="/var/www/html/app/public" />
+        </path_mappings>
+      </server>
+    </servers>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
+  <component name="PhpXdebugProxy" ide_key="docker" host="localhost" port="9009" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -45,6 +85,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -54,6 +95,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php.debug&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -91,11 +133,45 @@
       <workItem from="1694254970020" duration="7121000" />
       <workItem from="1694357450585" duration="1723000" />
       <workItem from="1694423647450" duration="1842000" />
-      <workItem from="1694515698374" duration="8049000" />
+      <workItem from="1694515698374" duration="10009000" />
+      <workItem from="1694604576495" duration="10490000" />
+      <workItem from="1694672923604" duration="14602000" />
+      <workItem from="1694778075895" duration="6307000" />
+      <workItem from="1694864905107" duration="10647000" />
+      <workItem from="1694928499195" duration="6211000" />
+      <workItem from="1695032826292" duration="12677000" />
+      <workItem from="1695122872984" duration="6395000" />
+      <workItem from="1695210733067" duration="6573000" />
+      <workItem from="1695293716049" duration="5166000" />
+      <workItem from="1695382108212" duration="10242000" />
+      <workItem from="1695470439805" duration="7365000" />
+      <workItem from="1695561179232" duration="2787000" />
+      <workItem from="1695637207404" duration="8997000" />
+      <workItem from="1695723039715" duration="8271000" />
+      <workItem from="1695905086227" duration="7811000" />
+      <workItem from="1695984628990" duration="8051000" />
+      <workItem from="1696065865951" duration="12534000" />
+      <workItem from="1696148642709" duration="12582000" />
+      <workItem from="1696244927825" duration="7784000" />
+      <workItem from="1696320709870" duration="22160000" />
+      <workItem from="1696414999924" duration="13626000" />
+      <workItem from="1696497278919" duration="11151000" />
+      <workItem from="1696675955305" duration="6099000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

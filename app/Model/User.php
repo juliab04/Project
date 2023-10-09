@@ -40,6 +40,42 @@ class User
         $statement->execute(['name' => $name, 'email' => $email, 'password' => $password]);
 
     }
+    public function basketProducts()
+    {
+        return Basket::getAllByUser($this->getId());
+    }
+
+    public function productsInBasket()
+    {
+        $productsInBasket = $this->basketProducts();
+        $productIds = [];
+        foreach ($productsInBasket as $productInBasket) {
+            $productIds[] = $productInBasket->getProductId();
+        }
+
+        $productIds = implode(', ', $productIds);
+        $products = Product::getAllByProductIds($productIds);
+
+        $productsWithKeys = [];
+        foreach ($products as $product) {
+            $productsWithKeys[$product->getId()] = $product;
+        }
+        return $productsWithKeys;
+    }
+    public function getTotalCart()
+    {
+        $productsWithKeys = $this->productsInBasket();
+        $totalCart = 0;
+        foreach ($this->basketProducts() as $productInBasket) {
+            $productId = $productInBasket->getProductId();
+            $product = $productsWithKeys[$productId];
+            $price = $product->getPrice();
+            $quantity = $productInBasket->getQuantity();
+            $totalCart = $totalCart + $price * $quantity;
+
+        }
+        return $totalCart;
+    }
 
     public function getPassword(): string
     {

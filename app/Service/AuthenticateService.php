@@ -23,4 +23,21 @@ class AuthenticateService
 
         return $this->user;
     }
+    public function authenticate(string $email, string $password): User|null
+    {
+        $user = User::getByEmail($email);
+        if ($user === null) {
+            return null;
+        }
+
+        if (password_verify($password, $user->getPassword())) {
+            session_start();
+            $_SESSION['user_id'] = $user->getId();
+
+            $this->user = $user;
+
+            return $this->user;
+        }
+        return null;
+    }
 }

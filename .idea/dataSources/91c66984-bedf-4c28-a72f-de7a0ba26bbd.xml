@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>563</IntrospectionStateNumber>
+      <IntrospectionStateNumber>581</IntrospectionStateNumber>
       <ServerVersion>10.1</ServerVersion>
-      <StartupTime>1696346890</StartupTime>
+      <StartupTime>1696743251</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1417,7 +1417,7 @@ true posixrules
 12703||10|C|G
 12703||-9223372036854775808|U|G
 12703||10|U|G</Grants>
-      <IntrospectionStateNumber>563</IntrospectionStateNumber>
+      <IntrospectionStateNumber>581</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4666,9 +4666,9 @@ true posixrules
     <schema id="245" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>563</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2023-10-03.23:37:45.006</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-10-03.16:37:45</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>581</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2023-10-08.14:02:48.025</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-10-08.07:02:48</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>351</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4676,7 +4676,7 @@ true posixrules
     <sequence id="246" parent="245" name="products_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16397</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1(4)</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>560</StateNumber>
       <OwnerName>dbuser</OwnerName>
@@ -4684,14 +4684,14 @@ true posixrules
     <sequence id="247" parent="245" name="users_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16386</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1(2)</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>558</StateNumber>
       <OwnerName>dbuser</OwnerName>
     </sequence>
-    <table id="248" parent="245" name="baskets">
+    <table id="248" parent="245" name="basket_items">
       <ObjectId>16408</ObjectId>
-      <StateNumber>562</StateNumber>
+      <StateNumber>579</StateNumber>
       <OwnerName>dbuser</OwnerName>
     </table>
     <table id="249" parent="245" name="products">
@@ -4727,7 +4727,6 @@ true posixrules
     </column>
     <foreign-key id="254" parent="248" name="baskets_product_id_fkey">
       <ColNames>product_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
       <ObjectId>16413</ObjectId>
       <StateNumber>562</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
@@ -4735,7 +4734,6 @@ true posixrules
     </foreign-key>
     <foreign-key id="255" parent="248" name="baskets_user_id_fkey">
       <ColNames>user_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
       <ObjectId>16418</ObjectId>
       <StateNumber>562</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
@@ -4744,7 +4742,6 @@ true posixrules
     <index id="256" parent="248" name="baskets_pkey">
       <ColNames>product_id
 user_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
       <ObjectId>16411</ObjectId>
       <Primary>1</Primary>
       <StateNumber>562</StateNumber>
@@ -4752,7 +4749,6 @@ user_id</ColNames>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="257" parent="248" name="baskets_pkey">
-      <NameSurrogate>1</NameSurrogate>
       <ObjectId>16412</ObjectId>
       <Primary>1</Primary>
       <StateNumber>562</StateNumber>

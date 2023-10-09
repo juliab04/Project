@@ -5,38 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cc4d7c3-a75f-4c82-8300-11ab06e661de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Config/routes.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Controllers/CartController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Controllers/MainController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Controllers/ProductController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Controllers/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Basket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/ConnectionFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Service/AuthenticateService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/Views/cart.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/Views/product.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/handler/add-to-cart.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/handler/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/handler/main.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/handler/registrate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.docker/conf/php/xdebug.ini" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/conf/php/xdebug.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Online-shop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Online-shop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd/storage_v2/_src_/database/dbname.CRg9sA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/91c66984-bedf-4c28-a72f-de7a0ba26bbd/storage_v2/_src_/database/dbname.CRg9sA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/hanlder/login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/hanlder/main.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/hanlder/registrate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/html/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Views/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Views/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/html/main.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Views/main.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/html/registrate.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/Views/registrate.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Basket.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Service/AuthenticateService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Service/AuthenticateService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +133,9 @@
       <workItem from="1696320709870" duration="22160000" />
       <workItem from="1696414999924" duration="13626000" />
       <workItem from="1696497278919" duration="11151000" />
-      <workItem from="1696675955305" duration="6099000" />
+      <workItem from="1696675955305" duration="6883000" />
+      <workItem from="1696743219996" duration="8420000" />
+      <workItem from="1696858232291" duration="1233000" />
     </task>
     <servers />
   </component>

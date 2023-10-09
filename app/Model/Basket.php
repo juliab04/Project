@@ -15,7 +15,7 @@ class Basket
 
     public static function getByProduct(int $productId, int $userId): self|null
     {
-        $stmt = ConnectionFactory::create()->prepare('select * from baskets where product_id = :productId and user_id =:userId');
+        $stmt = ConnectionFactory::create()->prepare('select * from basket_items where product_id = :productId and user_id =:userId');
         $stmt->execute(['productId' => $productId, 'userId' => $userId]);
         $result = $stmt->fetch();
         if (empty($result)) {
@@ -28,19 +28,26 @@ class Basket
 
     public static function update(int $quantity, int $productId, int $userId)
     {
-        $stmt = ConnectionFactory::create()->prepare('update baskets set quantity = quantity + :quantity where product_id = :productId and user_id =:userId');
+        $stmt = ConnectionFactory::create()->prepare('update basket_items set quantity = quantity + :quantity where product_id = :productId and user_id =:userId');
         $stmt->execute(['quantity' => $quantity, 'productId' => $productId, 'userId' => $userId]);
     }
 
     public static function add(int $userId, int $productId, int $quantity)
     {
-        $stmt = ConnectionFactory::create()->prepare("insert into baskets(user_id, product_id, quantity) values (:userId, :productId, :quantity)");
-        $stmt->execute(['userId' => $userId, 'productId' => $productId, 'quantity' => $quantity]);
+        $productData = Basket::getByProduct($productId, $userId);
+        if (!empty($productData)) {
+            Basket::update($quantity, $productId, $userId);
+        } else {
+            $stmt = ConnectionFactory::create()->prepare("insert into basket_items(user_id, product_id, quantity) values (:userId, :productId, :quantity)");
+            $stmt->execute(['userId' => $userId, 'productId' => $productId, 'quantity' => $quantity]);
+        }
+
+
     }
 
     public static function getAllByUser(int $userId)
     {
-        $statement = ConnectionFactory::create()->prepare('select * from baskets where user_id =:user_id');
+        $statement = ConnectionFactory::create()->prepare('select * from basket_items where user_id =:user_id');
         $statement->execute(['user_id' => $userId]);
         $result = $statement->fetchAll();
         if (empty($result)) {
@@ -56,7 +63,7 @@ class Basket
     }
     public static function deleteProduct(int $userId, int $productId)
     {
-        $stmt = ConnectionFactory::create()->prepare('delete from baskets where product_id = :productId and user_id =:userId');
+        $stmt = ConnectionFactory::create()->prepare('delete from basket_items where product_id = :productId and user_id =:userId');
         $stmt->execute(['productId' => $productId, 'userId' => $userId]);
 
     }

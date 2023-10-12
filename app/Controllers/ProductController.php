@@ -13,12 +13,12 @@ class ProductController
     }
     public function getProductCart()
     {
-        $method = $_SERVER['REQUEST_METHOD'];
         $user = $this->authenticateService->getAuthenticateUser();
         if ($user === null) {
             header('Location: /login');
         }
 
+        $method = $_SERVER['REQUEST_METHOD'];
         if (isset($_POST['product-id'])) {
             $productId = $_POST['product-id'];
 

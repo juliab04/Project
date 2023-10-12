@@ -1,19 +1,13 @@
 <?php
-namespace Model;
-class Basket
+
+namespace Repository;
+use Entity\User;
+use Entity\Basket;
+
+
+class BasketRepository
 {
-    private int $product_id;
-    private int $user_id;
-    private int $quantity;
-    public function __construct(int $productId, int $userId, int $quantity)
-    {
-        $this->product_id = $productId;
-        $this->user_id = $userId;
-        $this->quantity = $quantity;
-
-    }
-
-    public static function getByProduct(int $productId, int $userId): self|null
+    public static function getByProduct(int $productId, int $userId): Basket|null
     {
         $stmt = ConnectionFactory::create()->prepare('select * from basket_items where product_id = :productId and user_id =:userId');
         $stmt->execute(['productId' => $productId, 'userId' => $userId]);
@@ -22,7 +16,7 @@ class Basket
             return null;
         }
 
-        $basketData = new self($result['product_id'], $result['user_id'], $result['quantity']);
+        $basketData = new Basket($result['product_id'], $result['user_id'], $result['quantity']);
         return $basketData;
     }
 
@@ -34,9 +28,9 @@ class Basket
 
     public static function add(int $userId, int $productId, int $quantity)
     {
-        $productData = Basket::getByProduct($productId, $userId);
+        $productData = BasketRepository::getByProduct($productId, $userId);
         if (!empty($productData)) {
-            Basket::update($quantity, $productId, $userId);
+            BasketRepository::update($quantity, $productId, $userId);
         } else {
             $stmt = ConnectionFactory::create()->prepare("insert into basket_items(user_id, product_id, quantity) values (:userId, :productId, :quantity)");
             $stmt->execute(['userId' => $userId, 'productId' => $productId, 'quantity' => $quantity]);
@@ -55,7 +49,7 @@ class Basket
         }
         $basketData = [];
         foreach ($result as $item) {
-            $basket = new self($item['product_id'], $item['user_id'], $item['quantity']);
+            $basket = new Basket($item['product_id'], $item['user_id'], $item['quantity']);
             $basketData[] = $basket;
         }
 
@@ -67,20 +61,4 @@ class Basket
         $stmt->execute(['productId' => $productId, 'userId' => $userId]);
 
     }
-
-    public function getProductId(): int
-    {
-        return $this->product_id;
-    }
-
-    public function getUserId(): int
-    {
-        return $this->user_id;
-    }
-
-    public function getQuantity(): int
-    {
-        return $this->quantity;
-    }
-
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Model;
+namespace Repository;
 use PDO;
 
 class ConnectionFactory

@@ -1,7 +1,8 @@
 <?php
 namespace Controllers;
-use Model\Basket;
-use Model\Product;
+
+use Repository\BasketRepository;
+use Repository\UserRepository;
 use Service\AuthenticateService;
 
 class CartController
@@ -21,11 +22,12 @@ class CartController
 
     public function addToCart()
     {
-        $method = $_SERVER['REQUEST_METHOD'];
         $user = $this->authenticateService->getAuthenticateUser();
         if ($user === null) {
             header('Location: /login');
         }
+
+        $method = $_SERVER['REQUEST_METHOD'];
         if ($method === 'POST') {
 
             $productId = $_POST['product-id'];
@@ -36,8 +38,10 @@ class CartController
                 echo 'Количество продукта не может состоять не менее чем из 1 символа и не более чем из 15';
             }
 
-            Basket::add($userId, $productId, $quantity);
+            BasketRepository::add($userId, $productId, $quantity);
         }
+
+        header("Location: /main");
     }
 
     public function cart()
@@ -58,16 +62,16 @@ class CartController
 
     private function deleteProduct()
     {
-        $method = $_SERVER['REQUEST_METHOD'];
         $user = $this->authenticateService->getAuthenticateUser();
         if ($user === null) {
             header('Location: /login');
         }
 
+        $method = $_SERVER['REQUEST_METHOD'];
         if ($method === 'POST') {
             $productId = $_POST['product-id'];
 
-            Basket::deleteProduct($user->getId(), $productId);
+            BasketRepository::deleteProduct($user->getId(), $productId);
         }
     }
 }

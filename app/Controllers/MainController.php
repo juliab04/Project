@@ -1,6 +1,10 @@
 <?php
+
 namespace Controllers;
-use Model\Product;
+
+use Entity\Product;
+use Repository\ProductRepository;
+use Service\AuthenticateService;
 
 class MainController
 {
@@ -9,20 +13,24 @@ class MainController
 //    {
 //        $this->productModel = new Product();
 //    }
-public function main()
-{
-    session_start();
-    if(isset($_SESSION['user_id'])){
-        if (isset($_SESSION['user_id'])) {
+    private AuthenticateService $authenticateService;
 
-            $products = Product::getAll();
-            require_once './Views/main.phtml';
-        }
-
-        http_response_code(403);
-    } else {
-        header('Location: /login');
+    public function __construct()
+    {
+        $this->authenticateService = new AuthenticateService();
     }
 
-}
+    public function main()
+    {
+        $user = $this->authenticateService->getAuthenticateUser();
+
+        if ($user === null) {
+            header('Location: /login');
+        }
+
+        $products = ProductRepository::getAll();
+        require_once './Views/main.phtml';
+
+
+    }
 }

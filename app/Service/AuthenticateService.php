@@ -2,8 +2,8 @@
 
 namespace Service;
 
-use Model\User;
-
+use Entity\User;
+use Repository\UserRepository;
 class AuthenticateService
 {
     private User $user;
@@ -19,13 +19,13 @@ class AuthenticateService
         if (!isset($_SESSION['user_id'])) {
             return null;
         }
-        $this->user = User::getById($_SESSION['user_id']);
+        $this->user = UserRepository::getById($_SESSION['user_id']);
 
         return $this->user;
     }
     public function authenticate(string $email, string $password): User|null
     {
-        $user = User::getByEmail($email);
+        $user = UserRepository::getByEmail($email);
         if ($user === null) {
             return null;
         }
@@ -39,5 +39,12 @@ class AuthenticateService
             return $this->user;
         }
         return null;
+    }
+    public function logout()
+    {
+        session_start();
+        session_destroy();
+
+        unset($this->user);
     }
 }

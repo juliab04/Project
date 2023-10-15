@@ -7,6 +7,11 @@ use Repository\UserRepository;
 class AuthenticateService
 {
     private User $user;
+    private UserRepository $userRepository;
+    public function __construct()
+    {
+        $this->userRepository = new UserRepository();
+    }
 
     public function getAuthenticateUser(): User|null
     {
@@ -19,13 +24,13 @@ class AuthenticateService
         if (!isset($_SESSION['user_id'])) {
             return null;
         }
-        $this->user = UserRepository::getById($_SESSION['user_id']);
+        $this->user = $this->userRepository->getById($_SESSION['user_id']);
 
         return $this->user;
     }
     public function authenticate(string $email, string $password): User|null
     {
-        $user = UserRepository::getByEmail($email);
+        $user = $this->userRepository->getByEmail($email);
         if ($user === null) {
             return null;
         }

@@ -1,6 +1,7 @@
 <?php
 namespace Controllers;
 use Model\User;
+use Repository\UserRepository;
 use Service\AuthenticateService;
 
 class UserController
@@ -12,9 +13,11 @@ class UserController
 //    }
 
     private AuthenticateService $authenticateService;
+    private UserRepository $userRepository;
     public function __construct()
     {
         $this->authenticateService = new AuthenticateService();
+        $this->userRepository = new UserRepository();
     }
 
     public function registrate()
@@ -29,7 +32,7 @@ class UserController
 
                 $password = password_hash($password, PASSWORD_DEFAULT);
 
-                User::addUsers($name, $email, $password);
+                $this->userRepository->addUsers($name, $email, $password);
 
                 $this->authenticateService->authenticate($email, $password);
             }
@@ -65,7 +68,7 @@ class UserController
                 $result['email'] = 'Email некорректен';
             }
 
-            $emailData = User::getByEmail($userData['email']);
+            $emailData = $this->userRepository->getByEmail($userData['email']);
             if (!empty($emailData)) {
                 $result['email'] = 'Пользователь с таким email уже существует';
 

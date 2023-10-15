@@ -6,6 +6,8 @@ use Repository\ProductRepository;
 use Repository\UserRepository;
 class User
 {
+    private ProductRepository $productRepository;
+    private BasketRepository $basketRepository;
     private int $id;
     private string $name;
     private string $email;
@@ -16,10 +18,12 @@ class User
         $this->name = $name;
         $this->email = $email;
         $this->password = $password;
+        $this->productRepository = new ProductRepository();
+        $this->basketRepository = new BasketRepository();
     }
     public function basketProducts()
     {
-        return BasketRepository::getAllByUser($this->getId());
+        return $this->basketRepository->getAllByUser($this->getId());
     }
 
     public function productsInBasket()
@@ -31,7 +35,7 @@ class User
 //        }
 //
 //        $productIds = implode(', ', $productIds);
-        $products = ProductRepository::getAllForUserId($this->getId());
+        $products = $this->productRepository->getAllForUserId($this->getId());
 
         $productsWithKeys = [];
         foreach ($products as $product) {

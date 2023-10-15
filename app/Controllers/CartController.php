@@ -15,9 +15,11 @@ class CartController
 //        $this->productModel = new Product();
 //    }
     private AuthenticateService $authenticateService;
+    private BasketRepository $basketRepository;
     public function __construct()
     {
         $this->authenticateService = new AuthenticateService();
+        $this->basketRepository = new BasketRepository();
     }
 
     public function addToCart()
@@ -38,7 +40,7 @@ class CartController
                 echo 'Количество продукта не может состоять не менее чем из 1 символа и не более чем из 15';
             }
 
-            BasketRepository::add($userId, $productId, $quantity);
+            $this->basketRepository->add($userId, $productId, $quantity);
         }
 
         header("Location: /main");
@@ -71,7 +73,7 @@ class CartController
         if ($method === 'POST') {
             $productId = $_POST['product-id'];
 
-            BasketRepository::deleteProduct($user->getId(), $productId);
+            $this->basketRepository->deleteProduct($user->getId(), $productId);
         }
     }
 }

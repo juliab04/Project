@@ -14,10 +14,12 @@ class MainController
 //        $this->productModel = new Product();
 //    }
     private AuthenticateService $authenticateService;
+    private ProductRepository $productRepository;
 
     public function __construct()
     {
         $this->authenticateService = new AuthenticateService();
+        $this->productRepository = new ProductRepository();
     }
 
     public function main()
@@ -28,7 +30,7 @@ class MainController
             header('Location: /login');
         }
 
-        $products = ProductRepository::getAll();
+        $products = $this->productRepository->getAll();
         require_once './Views/main.phtml';
 
 

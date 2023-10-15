@@ -6,9 +6,14 @@ use Entity\Product;
 
 class ProductRepository
 {
-    public static function getAll()
+    private ConnectionFactory $pdo;
+    public function __construct()
     {
-        $statement = ConnectionFactory::create()->query('select * from products');
+        $this->pdo = new ConnectionFactory();
+    }
+    public function getAll()
+    {
+        $statement = $this->pdo->create()->query('select * from products');
         $result = $statement->fetchAll();
         if (empty($result)) {
             return null;
@@ -23,9 +28,9 @@ class ProductRepository
         return $products;
     }
 
-    public static function getAllForUserId($userId)
+    public function getAllForUserId($userId)
     {
-        $statement = ConnectionFactory::create()->query("select products.* from products inner join basket_items on products.id = product_id
+        $statement = $this->pdo->create()->query("select products.* from products inner join basket_items on products.id = product_id
          where basket_items.user_id=$userId");
         $result = $statement->fetchAll();
         if (empty($result)) {
@@ -41,9 +46,9 @@ class ProductRepository
 
         return $products;
     }
-    public static function getProduct(int $productId): Product|null
+    public function getProduct(int $productId): Product|null
     {
-        $stmt = ConnectionFactory::create()->prepare('select * from products where id = :productId');
+        $stmt = $this->pdo->create()->prepare('select * from products where id = :productId');
         $stmt->execute(['productId' => $productId]);
         $result = $stmt->fetch();
         if (empty($result)) {

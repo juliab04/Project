@@ -3,15 +3,16 @@
 namespace Controllers;
 use Model\Product;
 use Repository\ProductRepository;
-use Service\AuthenticateService;
+use Service\AuthenticationCookiesService;
+use Service\AuthenticationSessionService;
 
 class ProductController
 {
-    private AuthenticateService $authenticateService;
+    private AuthenticationCookiesService $authenticateService;
     private ProductRepository $productRepository;
     public function __construct()
     {
-        $this->authenticateService = new AuthenticateService();
+        $this->authenticateService = new AuthenticationCookiesService();
         $this->productRepository = new ProductRepository();
     }
     public function getProductCart()

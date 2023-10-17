@@ -4,7 +4,8 @@ namespace Controllers;
 
 use Entity\Product;
 use Repository\ProductRepository;
-use Service\AuthenticateService;
+use Service\AuthenticationCookiesService;
+use Service\AuthenticationSessionService;
 
 class MainController
 {
@@ -13,12 +14,12 @@ class MainController
 //    {
 //        $this->productModel = new Product();
 //    }
-    private AuthenticateService $authenticateService;
+    private AuthenticationCookiesService $authenticateService;
     private ProductRepository $productRepository;
 
     public function __construct()
     {
-        $this->authenticateService = new AuthenticateService();
+        $this->authenticateService = new AuthenticationCookiesService();
         $this->productRepository = new ProductRepository();
     }
 

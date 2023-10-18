@@ -3,8 +3,9 @@ namespace Controllers;
 
 use Repository\BasketRepository;
 use Repository\UserRepository;
-use Service\AuthenticationCookiesService;
-use Service\AuthenticationSessionService;
+use Service\AuthenticationCookiesServiceService;
+use Service\AuthenticationServiceInterface;
+use Service\AuthenticationSessionServiceService;
 
 class CartController
 {
@@ -15,11 +16,11 @@ class CartController
 //        $this->basketModel = new Basket();
 //        $this->productModel = new Product();
 //    }
-    private AuthenticationCookiesService $authenticateService;
+    private AuthenticationServiceInterface $authenticateService;
     private BasketRepository $basketRepository;
-    public function __construct()
+    public function __construct(AuthenticationServiceInterface $authenticateService)
     {
-        $this->authenticateService = new AuthenticationCookiesService();
+        $this->authenticateService = $authenticateService;
         $this->basketRepository = new BasketRepository();
     }
 

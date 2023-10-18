@@ -4,7 +4,7 @@ namespace Service;
 
 use Entity\User;
 use Repository\UserRepository;
-class AuthenticationSessionService implements UserAuthentication
+class AuthenticationSessionServiceService implements AuthenticationServiceInterface
 {
     private User $user;
     private UserRepository $userRepository;

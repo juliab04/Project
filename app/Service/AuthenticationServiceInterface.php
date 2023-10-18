@@ -4,7 +4,7 @@ namespace Service;
 
 use Entity\User;
 
-interface UserAuthentication
+interface AuthenticationServiceInterface
 {
     public function getAuthenticateUser(): User|null;
 

@@ -2,8 +2,9 @@
 namespace Controllers;
 use Model\User;
 use Repository\UserRepository;
-use Service\AuthenticationCookiesService;
-use Service\AuthenticationSessionService;
+use Service\AuthenticationCookiesServiceService;
+use Service\AuthenticationServiceInterface;
+use Service\AuthenticationSessionServiceService;
 
 class UserController
 {
@@ -13,11 +14,11 @@ class UserController
 //        $this->userModel = new User();
 //    }
 
-    private AuthenticationCookiesService $authenticateService;
+    private AuthenticationServiceInterface $authenticateService;
     private UserRepository $userRepository;
-    public function __construct()
+    public function __construct(AuthenticationServiceInterface $authenticateService)
     {
-        $this->authenticateService = new AuthenticationCookiesService();
+        $this->authenticateService = $authenticateService;
         $this->userRepository = new UserRepository();
     }
 

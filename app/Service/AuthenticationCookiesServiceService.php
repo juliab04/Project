@@ -5,7 +5,7 @@ namespace Service;
 use Entity\User;
 use Repository\UserRepository;
 
-class AuthenticationCookiesService implements UserAuthentication
+class AuthenticationCookiesServiceService implements AuthenticationServiceInterface
 {
     private User $user;
     private UserRepository $userRepository;
@@ -13,13 +13,12 @@ class AuthenticationCookiesService implements UserAuthentication
     {
         $this->userRepository = new UserRepository();
     }
+
     public function getAuthenticateUser(): User|null
     {
         if (isset($this->user)) {
             return $this->user;
         }
-
-        setcookie('user_id', time() + 7200);
 
         if (!isset($_COOKIE['user_id'])) {
             return null;
@@ -28,6 +27,7 @@ class AuthenticationCookiesService implements UserAuthentication
 
         return $this->user;
     }
+
     public function authenticate(string $email, string $password): User|null
     {
         $user = $this->userRepository->getByEmail($email);
@@ -37,7 +37,7 @@ class AuthenticationCookiesService implements UserAuthentication
 
         if (password_verify($password, $user->getPassword())) {
 
-            $_COOKIE['user_id'] = $user->getId();
+            setcookie('user_id', $user->getId());
 
             $this->user = $user;
 
@@ -45,6 +45,7 @@ class AuthenticationCookiesService implements UserAuthentication
         }
         return null;
     }
+
     public function logout()
     {
         setcookie('user_id', time() - 7200);

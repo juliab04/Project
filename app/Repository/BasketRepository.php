@@ -6,15 +6,15 @@ use PDO;
 
 class BasketRepository
 {
-    private ConnectionFactory $pdo;
-    public function __construct()
+    private \PDO $pdo;
+    public function __construct(\PDO $pdo)
     {
-        $this->pdo = new ConnectionFactory();
+        $this->pdo = $pdo;
     }
 
     public function getByProduct(int $productId, int $userId): Basket|null
     {
-        $stmt = $this->pdo->create()->prepare('select * from basket_items where product_id = :productId and user_id =:userId');
+        $stmt = $this->pdo->prepare('select * from basket_items where product_id = :productId and user_id =:userId');
         $stmt->execute(['productId' => $productId, 'userId' => $userId]);
         $result = $stmt->fetch();
         if (empty($result)) {
@@ -27,7 +27,7 @@ class BasketRepository
 
     public function update(int $quantity, int $productId, int $userId)
     {
-        $stmt = $this->pdo->create()->prepare('update basket_items set quantity = quantity + :quantity where product_id = :productId and user_id =:userId');
+        $stmt = $this->pdo->prepare('update basket_items set quantity = quantity + :quantity where product_id = :productId and user_id =:userId');
         $stmt->execute(['quantity' => $quantity, 'productId' => $productId, 'userId' => $userId]);
     }
 
@@ -37,7 +37,7 @@ class BasketRepository
         if (!empty($productData)) {
             BasketRepository::update($quantity, $productId, $userId);
         } else {
-            $stmt = $this->pdo->create()->prepare("insert into basket_items(user_id, product_id, quantity) values (:userId, :productId, :quantity)");
+            $stmt = $this->pdo->prepare("insert into basket_items(user_id, product_id, quantity) values (:userId, :productId, :quantity)");
             $stmt->execute(['userId' => $userId, 'productId' => $productId, 'quantity' => $quantity]);
         }
 
@@ -46,7 +46,7 @@ class BasketRepository
 
     public function getAllByUser(int $userId)
     {
-        $statement = $this->pdo->create()->prepare('select * from basket_items where user_id =:user_id');
+        $statement = $this->pdo->prepare('select * from basket_items where user_id =:user_id');
         $statement->execute(['user_id' => $userId]);
         $result = $statement->fetchAll();
         if (empty($result)) {
@@ -62,7 +62,7 @@ class BasketRepository
     }
     public function deleteProduct(int $userId, int $productId)
     {
-        $stmt = $this->pdo->create()->prepare('delete from basket_items where product_id = :productId and user_id =:userId');
+        $stmt = $this->pdo->prepare('delete from basket_items where product_id = :productId and user_id =:userId');
         $stmt->execute(['productId' => $productId, 'userId' => $userId]);
 
     }

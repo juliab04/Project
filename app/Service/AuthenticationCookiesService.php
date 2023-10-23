@@ -4,14 +4,10 @@ namespace Service;
 
 use Entity\User;
 use Repository\UserRepository;
-class AuthenticationSessionServiceService implements AuthenticationServiceInterface
+
+class AuthenticationCookiesService implements AuthenticationServiceInterface
 {
     private User $user;
-    private UserRepository $userRepository;
-    public function __construct()
-    {
-        $this->userRepository = new UserRepository();
-    }
 
     public function getAuthenticateUser(): User|null
     {
@@ -19,25 +15,26 @@ class AuthenticationSessionServiceService implements AuthenticationServiceInterf
             return $this->user;
         }
 
-        session_start();
-
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_COOKIE['user_id'])) {
             return null;
         }
-        $this->user = $this->userRepository->getById($_SESSION['user_id']);
+        $userRepository = \Container::get(UserRepository::class);
+        $this->user = $userRepository->getById($_COOKIE['user_id']);
 
         return $this->user;
     }
+
     public function authenticate(string $email, string $password): User|null
     {
-        $user = $this->userRepository->getByEmail($email);
+        $userRepository = \Container::get(UserRepository::class);
+        $user = $userRepository->getByEmail($email);
         if ($user === null) {
             return null;
         }
 
         if (password_verify($password, $user->getPassword())) {
-            session_start();
-            $_SESSION['user_id'] = $user->getId();
+
+            setcookie('user_id', $user->getId());
 
             $this->user = $user;
 
@@ -45,10 +42,10 @@ class AuthenticationSessionServiceService implements AuthenticationServiceInterf
         }
         return null;
     }
+
     public function logout()
     {
-        session_start();
-        session_destroy();
+        setcookie('user_id', time() - 7200);
 
         unset($this->user);
     }

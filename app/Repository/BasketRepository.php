@@ -2,7 +2,7 @@
 
 namespace Repository;
 use Entity\Basket;
-use PDO;
+
 
 class BasketRepository
 {

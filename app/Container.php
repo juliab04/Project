@@ -5,7 +5,7 @@ class Container
     private static array $createServices;
     private static array $dependencies = [];
 
-    public function __construct(array $services)
+    public static function init(array $services)
     {
         self::$dependencies = $services;
     }

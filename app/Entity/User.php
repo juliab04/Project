@@ -24,14 +24,6 @@ class User
 
     public function productsInBasket()
     {
-//        $productsInBasket = $this->basketProducts();
-//        $productIds = [];
-//        foreach ($productsInBasket as $productInBasket) {
-//            $productIds[] = $productInBasket->getProductId();
-//        }
-//
-//        $productIds = implode(', ', $productIds);
-
         $productRepository = \Container::get(ProductRepository::class);
 
         $products = $productRepository->getAllForUserId($this->getId());

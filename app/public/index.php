@@ -15,20 +15,19 @@ $routes = require_once './../Config/routes.php';
 
 $services = require_once './../Config/services.php';
 
-$container = new Container($services);
+Container::init($services);
 if (isset($routes[$uri])) {
     $handler = $routes[$uri];
 
     $class = $handler['class'];
     $method = $handler['method'];
 
-    $obj = $container->get($class);
+    $obj = Container::get($class);
 
     $obj-> $method();
 } else {
     require_once './Views/404.html';
 }
-
 
 ?>
 

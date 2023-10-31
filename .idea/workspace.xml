@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cc4d7c3-a75f-4c82-8300-11ab06e661de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Config/services.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Container.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Container.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Container.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repository/BasketRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/BasketRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/ProductRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Service/AuthenticationCookiesServiceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Service/AuthenticationCookiesService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Service/AuthenticationSessionServiceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Service/AuthenticationSessionService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +142,11 @@
       <workItem from="1697631283041" duration="6236000" />
       <workItem from="1697723478403" duration="3253000" />
       <workItem from="1697960095232" duration="5673000" />
-      <workItem from="1698059397574" duration="5980000" />
+      <workItem from="1698059397574" duration="8097000" />
+      <workItem from="1698227082870" duration="10466000" />
+      <workItem from="1698323308329" duration="3815000" />
+      <workItem from="1698495992149" duration="5440000" />
+      <workItem from="1698585984603" duration="3598000" />
     </task>
     <servers />
   </component>
